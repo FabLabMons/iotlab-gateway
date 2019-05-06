@@ -10,6 +10,7 @@ Therefore, there is no security and user management is reduced to the minimum.
 * Data broker (Node-RED)
 * Time series storage (InfluxDB)
 * Visualisation (Grafana)
+* Reverse proxy (nginx)
 
 ### Exposed ports
 
@@ -45,10 +46,13 @@ Suggestion: prefix your MQTT topics name with your username
 <username>-<flow-name>
 ```
 
+Node-RED documentation: https://nodered.org/docs/.
+
 ### Grafana
 
 Each user will have its own Grafana Organization named after his/her username.
 
+Grafana documentation: http://docs.grafana.org/.
 
 ### MQTT
 
@@ -61,14 +65,28 @@ Suggestion: prefix your MQTT topics name with your username
 <username>/+/+/+
 ```
 
+Mosquitto documentation: https://mosquitto.org/.
+
 ### InfluxDB
 
 There is no authentication on this InfluxDB instance.
 The user creation script will only create a database with the username.
 
+InfluxDB documentation: https://docs.influxdata.com/.
+
+### nginx
+
+The nginx server runs on port 80 and forwards the following URLs:
+* `http://<gateway>/red`: Node-RED editor
+* `http://<gateway>/grafana`: Grafana
+
+It also provides a home page with the previous links.
+
+Nginx documentation: https://nginx.org/en/docs/.
+
 ## License
 
-Copyright 2018 FabLab Mons.
+Copyright 2019 FabLab Mons.
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
