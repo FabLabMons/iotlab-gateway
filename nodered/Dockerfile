@@ -1,4 +1,4 @@
-FROM resin/raspberrypi3-node:8
+FROM resin/raspberrypi3-node:10
 
 # Defines our working directory in container
 RUN mkdir -p /usr/src/app/
